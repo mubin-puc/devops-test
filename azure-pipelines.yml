@@ -3,8 +3,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+resources:
+  webhooks:
+    - webhook: acr-webhook          ### Webhook alias
+      connection: acr-webhook-conn    ### Incoming webhook service connection
 
 pool:
   vmImage: ubuntu-latest
