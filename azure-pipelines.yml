@@ -12,10 +12,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'DevOps-Demo-4'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az acr login -n cloudxchange -u cloudxchange -p i/awPSnZ64DL9A29gH6bVhFtxBI2grs7'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
+
