@@ -16,12 +16,13 @@ jobs:
   displayName: Sample
   steps:
     
-  - task: AzureCLI@2
+  - task: Bash@3
     inputs:
-      azureSubscription: 'DevOps-Demo-4'
-      scriptType: 'bash'
-      scriptLocation: 'inlineScript'
-      inlineScript: 'az acr login -n cloudxchange -u cloudxchange -p i/awPSnZ64DL9A29gH6bVhFtxBI2grs7'
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        
+        echo 'Hello world'
 
 - job: waitForValidation
   displayName: Wait for external validation  
@@ -40,10 +41,11 @@ jobs:
 - job: ScondJob 
   displayName: Sample2
   steps:
-    
-  - task: AzureCLI@2
-    inputs:
-      azureSubscription: 'DevOps-Demo-4'
-      scriptType: 'bash'
-      scriptLocation: 'inlineScript'
-      inlineScript: 'az acr login -n cloudxchange -u cloudxchange -p i/awPSnZ64DL9A29gH6bVhFtxBI2grs7'
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          
+          echo 'Hello world'
+  
